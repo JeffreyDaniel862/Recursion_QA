@@ -15,6 +15,11 @@ public class combinations_Sequences {
         for (ArrayList<Integer> internal : list) {
             System.out.print(internal + " ");
         }
+        System.out.println();
+        ArrayList<ArrayList<Integer>> list2 = subsetWithDuplicate(new int[] {1,2,2});
+        for (ArrayList<Integer> internal : list2) {
+            System.out.print(internal + " ");
+        }
     }
 
     // Just print combination doesn't return anything.
@@ -92,6 +97,26 @@ public class combinations_Sequences {
             }
         }
 
+        return result;
+    }
+    
+    private static ArrayList<ArrayList<Integer>> subsetWithDuplicate (int[] arr) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        result.add(new ArrayList<>());
+        int start = 0;
+        int end = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (i > 0 && arr[i - 1] == arr[i]) {
+                start = end + 1;
+            }
+            end = result.size() - 1;
+            int size = result.size();
+            for (int j = start; j < size; j++) {
+                ArrayList<Integer> inter = new ArrayList<>(result.get(j));
+                inter.add(arr[i]);
+                result.add(inter);
+            }
+        }
         return result;
     }
 }
