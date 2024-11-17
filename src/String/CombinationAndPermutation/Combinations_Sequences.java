@@ -1,8 +1,8 @@
-package String;
+package String.CombinationAndPermutation;
 
 import java.util.ArrayList;
 
-public class combinations_Sequences {
+public class Combinations_Sequences {
     public static void main(String[] args) {
         String str = "abc";
         System.out.println(returnCombination("", str));
