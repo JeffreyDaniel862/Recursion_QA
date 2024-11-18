@@ -1,3 +1,5 @@
+// AMAZON QUESTION
+
 package String.CombinationAndPermutation;
 
 import java.util.ArrayList;
@@ -30,5 +32,15 @@ public class DiceRolls {
             result.addAll(diceCombinationReturn(processed + i, target - i));
         }
         return result;
+    }
+    private static void customDiceFaceCombination (String processed, int target, int face) {
+        if (target == 0) {
+            System.out.print(processed + ", ");
+            return;
+        }
+
+        for (int i = 1; i <= face && i <= target; i++) {
+            customDiceFaceCombination(processed + i, target - i, face);
+        }
     }
 }
