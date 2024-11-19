@@ -10,7 +10,7 @@ public class NoOfPaths {
         System.out.println(pathWithDiagonal(new int[]{0, 0}, new int[]{2,2}, ""));
     }
 
-    // return number of ways to reach the destination
+    // return number of ways to reach the destination (move only right and down)
     private static int pathCount(int[] result, int[] target) {
         if (target[0] == result[0] || target[1] == result[1]) return 1;
         int right = pathCount(new int[]{result[0], result[1] + 1}, target);
@@ -18,7 +18,7 @@ public class NoOfPaths {
         return right + down;
     }
 
-    // exact path to reach the destination
+    // exact path to reach the destination (move only right and down)
     private static void path(int[] result, int[] target, String processed) {
         if (result[0] > target[0] || result[1] > target[1]) return ;
         if (target[0] == result[0] && target[1] == result[1]) {
@@ -29,7 +29,7 @@ public class NoOfPaths {
         path(new int[]{result[0] + 1, result[1]}, target, processed + "D");
     }
 
-    // return exact path to reach the destination
+    // return exact path to reach the destination (move only right and down)
     private static ArrayList<String> pathReturn (int[] result, int[] target, String processed) {
         if (target[0] == result[0] && target[1] == result[1]) {
             ArrayList<String> list = new ArrayList<>();
@@ -42,6 +42,7 @@ public class NoOfPaths {
         return resultList;
     }
 
+    // return path with diagonal, right and down
     private static ArrayList<String> pathWithDiagonal (int[] result, int[] target, String processed) {
         if (target[0] == result[0] && target[1] == result[1]) {
             ArrayList<String> list = new ArrayList<>();
